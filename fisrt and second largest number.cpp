@@ -1,10 +1,9 @@
-#include <bits/stdc++.h>
- 
+#include<bits/stdc++.h>
+
 using namespace std;
 
 int main() {
     int n;
-
 
     cout << "Enter the size of the array: ";
     cin >> n;
@@ -16,28 +15,24 @@ int main() {
 
     int arr[n];
 
-
     cout << "Enter the elements of the array: ";
     for (int i = 0; i < n; i++) {
         cin >> arr[i];
     }
 
-
     int largest = arr[0];
-    int secondLargest = arr[0];
-
+    int secondLargest =  arr[0];
 
     for (int i = 0; i < n; i++) {
         if (arr[i] > largest) {
             secondLargest = largest;
             largest = arr[i];
-        } else if (arr[i] > secondLargest && arr[i] != largest) {
+        } else if (arr[i] > secondLargest && arr[i] < largest) {
             secondLargest = arr[i];
         }
     }
 
-
-    if (secondLargest == arr[0]) {
+    if (secondLargest ==  arr[0]) {
         cout << "There is no second largest number in the array." << endl;
     } else {
         cout << "The largest number is: " << largest << endl;
@@ -46,4 +41,3 @@ int main() {
 
     return 0;
 }
-
