@@ -1,0 +1,34 @@
+def countingSort(arr):
+    if len(arr) == 0:
+        return
+
+    # Find the range of the input array
+    maxElement = max(arr)
+    minElement = min(arr)
+    range = maxElement - minElement + 1
+
+    # Create and initialize the count array
+    count = [0] * range
+
+    # Count the elements
+    for num in arr:
+        count[num - minElement] += 1
+
+    # Modify the count array
+    for i in range(1, range):
+        count[i] += count[i - 1]
+
+    # Build the output array
+    output = [0] * len(arr)
+    for i in range(len(arr) - 1, -1, -1):
+        output[count[arr[i] - minElement] - 1] = arr[i]
+        count[arr[i] - minElement] -= 1
+
+    # Copy to original array
+    for i in range(len(arr)):
+        arr[i] = output[i]
+
+# Example usage
+arr = [1, 2, 4, 3, 0, 2, 1, 7, 1, 4, 3, 0]
+countingSort(arr)
+print("Sorted array:", arr)
