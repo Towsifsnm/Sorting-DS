@@ -1,4 +1,4 @@
-def countingSort(arr):
+ countingSort(arr):
     if len(arr) == 0:
         return
 
